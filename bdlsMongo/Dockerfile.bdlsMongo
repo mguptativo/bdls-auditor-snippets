@@ -1,0 +1,15 @@
+FROM docker.tivo.com/alpine-java:8_server-jre
+MAINTAINER Meghana Gupta <meghana.gupta@tivo.com>
+
+RUN apk update && \
+    apk add tar \
+    which curl
+
+CMD [ "/home/tivo//bin/st-get-recordings" ]
+
+ENV PATH=/home/tivo/bin:$PATH \
+    SERVICE_NAME=st-get-recordings
+
+ADD build/distributions/st-get-recordings.tar /home/tivo/
+
+COPY build/buildinfo/ /TivoData/etc/buildinfo/

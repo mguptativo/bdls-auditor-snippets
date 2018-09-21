@@ -1,0 +1,21 @@
+<configuration>
+
+    <appender name="File" class="ch.qos.logback.core.FileAppender">
+        <file>/Users/mgupta/bdlsMongo/bdlsToMongo.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.mongodb" level="INFO" />
+    <logger name="org.apache.kafka" level="INFO" />
+    <logger name="com.tivo.bodydata" level="INFO" />
+    <logger name="com.tivo.svcutil.util.TivoEnvelope" level="ERROR" />
+    <logger name="com.tivo.bodydata.utils.ConvertSchema" level="ERROR" />
+    <logger name="com.tivo" level="INFO" />
+
+    <root level="INFO">
+        <appender-ref ref="File" />
+    </root>
+</configuration>
